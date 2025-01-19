@@ -1,4 +1,3 @@
-# src/inference.py
 import sys
 import os
 import numpy as np
@@ -20,13 +19,17 @@ def predict(image_path, model_path="results/model.h5", label_path="results/class
     class_labels = load_class_labels(label_path)
     model = tf.keras.models.load_model(model_path)
     
+    # Preprocesar la imagen
     image = preprocess_image(image_path)
     image = image.reshape(1, 32, 32, 1) / 255.0
     
+    # Obtener predicciones
     predictions = model.predict(image)
-    class_idx = tf.argmax(predictions, axis=1).numpy()[0]
+    confidence = np.max(predictions)  # Confianza de la predicción más alta
+    class_idx = np.argmax(predictions)  # Índice de la clase predicha
     class_name = [k for k, v in class_labels.items() if v == class_idx][0]
-    return class_name
+    
+    return class_name, confidence
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -35,7 +38,8 @@ if __name__ == "__main__":
     
     image_path = sys.argv[1]
     try:
-        result = predict(image_path)
-        print(f"Predicción para la imagen '{image_path}': {result}")
+        class_name, confidence = predict(image_path)
+        print(f"Predicción para la imagen '{image_path}': {class_name}")
+        print(f"Confianza de la predicción: {confidence:.4f}")
     except Exception as e:
         print(f"Error al procesar la imagen: {e}")
