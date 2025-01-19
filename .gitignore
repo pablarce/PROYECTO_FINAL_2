@@ -1,0 +1,65 @@
+# Entornos virtuales
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Archivos de configuración de entornos
+*.env
+
+# Archivos de Python compilados
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.log
+
+# Configuración de IDEs y editores
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Librerías y dependencias
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Archivos de resultados y temporales
+results/
+*.npy
+*.h5
+*.csv
+
+# Archivos de datos temporales
+data/dataset/train/
+data/dataset/validation/
+data/dataset/test/
+
+# Archivos y configuraciones del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de imágenes preprocesadas o temporales
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.tiff
+
+# Archivos de caché
+*.cache
+.cache/
+
+# Archivos de logs
+*.log
+
+# Otros archivos innecesarios
+*.bak
+*.tmp
+*.swp
+*.lock
