@@ -1,4 +1,3 @@
-# src/utils.py
 import os
 
 def create_directories(base_dir, sub_dirs):

@@ -19,14 +19,12 @@ def predict(image_path, model_path="results/model.h5", label_path="results/class
     class_labels = load_class_labels(label_path)
     model = tf.keras.models.load_model(model_path)
     
-    # Preprocesar la imagen
     image = preprocess_image(image_path)
     image = image.reshape(1, 32, 32, 1) / 255.0
     
-    # Obtener predicciones
     predictions = model.predict(image)
-    confidence = np.max(predictions)  # Confianza de la predicción más alta
-    class_idx = np.argmax(predictions)  # Índice de la clase predicha
+    confidence = np.max(predictions) 
+    class_idx = np.argmax(predictions) 
     class_name = [k for k, v in class_labels.items() if v == class_idx][0]
     
     return class_name, confidence
