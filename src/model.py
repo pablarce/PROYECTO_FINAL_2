@@ -1,4 +1,3 @@
-# src/model.py
 import tensorflow as tf
 
 def build_model(input_shape=(32, 32, 1), num_classes=36):

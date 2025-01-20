@@ -29,12 +29,6 @@ dist/
 build/
 *.whl
 
-# Archivos de resultados y temporales
-results/
-*.npy
-*.h5
-*.csv
-
 # Archivos de datos temporales
 data/dataset/train/
 data/dataset/validation/
